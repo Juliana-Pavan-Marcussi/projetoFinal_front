@@ -1,14 +1,18 @@
 import React from 'react';
-import '../App.css';
+import './Navegador.css';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import Home from '../pages/Home';
+import Cadastro from '../pages/Cadastro';
+import Login from '../pages/Login';
+import Rotas from './Rotas';
 
 function Navegador() {
     return (
-        <div>
+        <div className="header-content-nav">
         <ul className="header">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/cadastro">Cadastro</NavLink></li>
-            <li><NavLink to="/login">Login</NavLink></li>
+            <li className="menu"><NavLink to="/">Home</NavLink></li>
+            <li className="menu"><NavLink to="/cadastro">Cadastro</NavLink></li>
+            <li className="menu"><NavLink to="/login">Login</NavLink></li>
         </ul>
     </div>
     )
