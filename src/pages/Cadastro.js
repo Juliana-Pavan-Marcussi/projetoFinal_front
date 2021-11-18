@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import './Cadastro.css';
 import AddUserForm from '../Forms/AddUserForm';
-
+import UserService from '../Services/UserService';
 
 const Cadastro = () => {
 
     const [users, setUsers] = useState('');
 
     const addUser = (user) => {
-        user.id = users.length + 1
-        setUsers([...users, user])
+       return UserService.addUserService(user);
       }
 
     return (
