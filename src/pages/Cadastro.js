@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react';
+import './Cadastro.css';
+import AddUserForm from '../Forms/AddUserForm';
 
-function Cadastro() {
+
+const Cadastro = () => {
+
+    const [users, setUsers] = useState('');
+
+    const addUser = (user) => {
+        user.id = users.length + 1
+        setUsers([...users, user])
+      }
+
     return (
         <div>
-            <h1>Oi Cadastro</h1>
+            <h1 className="title">Cadastro</h1>
+            <AddUserForm addUser={addUser} />
         </div>
     )
 }
