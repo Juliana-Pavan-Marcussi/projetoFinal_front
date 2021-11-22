@@ -5,7 +5,11 @@ import './routes/Rotas';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import Navegador from './routes/Navegador';
 import Rotas from './routes/Rotas';
-//import Vector from './assets/vector.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css.map';
+import 'bootstrap/dist/css/bootstrap-grid.min.css.map';
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+
 
 function App() {
   return (

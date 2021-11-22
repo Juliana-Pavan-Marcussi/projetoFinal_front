@@ -5,16 +5,11 @@ class userService{
 
       addUserService(user) {
         return apiTicher
-        .post("students", user,
-            {
-                headers: { 'Content-Type': 'multipart/form-data' }
-            })
+        .post("/students")
         .then((response) => {
             return response.data;
         });
 	}
-
-  
 
 }
 

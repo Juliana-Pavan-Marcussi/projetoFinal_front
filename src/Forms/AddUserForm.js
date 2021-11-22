@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import '../pages/Cadastro.css';
 import Multiselect from 'multiselect-react-dropdown';
+import { Button } from 'react-bootstrap';
 
 const AddUserForm = (props) => {
 
-    const initialFormState = { id: null, name: '', email: '', cpf: '', phone: '', password: '', checkbox: '' }
+    const initialFormState = { name: '', email: '', password: '' }
     const [user, setUser] = useState(initialFormState);
     const [isChecked, setIsChecked] = useState(false);
 
@@ -22,6 +23,7 @@ const AddUserForm = (props) => {
             setUser(initialFormState)
         }}
         >
+            
             <div className="input-form">
                 <label className="text-label">Nome</label>
                 <input className="text-input"
@@ -38,22 +40,22 @@ const AddUserForm = (props) => {
                     value={user.email}
                     onChange={handleInputChange} />
             </div>
-            {/* <div className="input-form">
+            <div className="input-form">
                 <label className="text-label">CPF</label>
                 <input className="text-input"
                     type="text"
                     name="cpf"
                     value={user.cpf}
                     onChange={handleInputChange} />
-            </div> */}
-            {/* <div className="input-form">
+            </div> 
+            <div className="input-form">
                 <label className="text-label">Telefone</label>
                 <input className="text-input"
                     type="text"
                     name="phone"
                     value={user.phone}
                     onChange={handleInputChange} />
-            </div> */}
+            </div>
             <div className="input-form">
                 <label className="text-label">Senha</label>
                 <input className="text-input"
@@ -111,6 +113,7 @@ const AddUserForm = (props) => {
             <div className="button-form">
                 <button className="btn-blue">Cadastre-se</button>
             </div>
+            <Button color="danger">Danger!</Button>
         </form>
     )
 }

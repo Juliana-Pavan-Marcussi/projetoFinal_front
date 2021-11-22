@@ -1,0 +1,44 @@
+.image{
+    text-align: center;
+    margin-left:29%;
+    margin-bottom: 30px;
+}
+
+.info-text{
+    text-align: center;
+    font-weight: 600;
+    font-size:20px;
+    text-shadow: 2px 2px 2px #c1c1c1;
+}
+
+.icon{
+    margin-right:10px
+    
+}
+
+svg {
+    stroke: currentcolor;
+    fill: green;
+    stroke-width: 0;
+    height: 1em;
+    width: 1em;
+}
+
+.footer{
+    display: flex;
+    margin-top:60px;
+    margin-left:400px;
+    margin-bottom: 100px;
+}
+
+.footer-info{
+    width: 180px;
+    margin-left:80px;
+    text-align: center;
+}
+
+.footer-info-title{
+    font-weight: 600;
+    font-size:20px;
+    text-shadow: 2px 2px 2px #c1c1c1;
+}
