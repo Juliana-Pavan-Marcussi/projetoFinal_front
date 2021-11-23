@@ -11,6 +11,14 @@ class userService{
         });
 	}
 
+  loginUserService(user) {
+    return apiTicher
+    .post("/students")
+    .then((response) => {
+        return response.data;
+    });
+}
+
 }
 
 export default new userService;
