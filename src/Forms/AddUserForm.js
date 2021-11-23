@@ -31,7 +31,7 @@ const AddUserForm = (props) => {
     };
 
     return (
-        <form onSubmit={(event) => {
+        <form className="form-area" onSubmit={(event) => {
             event.preventDefault()
             if (!user.name || !user.email || !user.password) return
 
