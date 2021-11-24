@@ -10,6 +10,8 @@ function Navegador() {
     return (
         <div className="header-content-nav">
         <ul className="header">           
+            <li className="menu"><NavLink to="/professor">Professor</NavLink></li>
+            <li className="menu"><NavLink to="/estudante">Estudante</NavLink></li>
             <li className="menu"><NavLink to="/cadastro">Cadastro</NavLink></li>
             <li className="menu"><NavLink to="/login">Login</NavLink></li>
             <li className="menu"><NavLink to="/">Home</NavLink></li>

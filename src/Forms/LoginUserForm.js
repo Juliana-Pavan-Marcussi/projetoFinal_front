@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
-import { Button } from 'reactstrap';
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import {
+    Button,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    FormText,
+    Col,
+    Row,
+    Card,
+    CardBody,
+    Table,
+    CardHeader,
+    InputGroup,
+    InputGroupAddon,
+    InputGroupText,
+} from 'reactstrap';
 
 const LoginUserForm = (props) => {
 
-    const initialFormState = {  email: '', password: '' }
+    const initialFormState = { email: '', password: '' }
     const [user, setUser] = useState(initialFormState);
 
     const handleInputChange = (event) => {
@@ -36,8 +53,11 @@ const LoginUserForm = (props) => {
                     value={user.password}
                     onChange={handleInputChange} />
             </div>
+            <NavLink to="/redefinir-senha">
+                <a><span style={{ color: "#031349", marginLeft: "700px", cursor: "pointer" }}>Esqueceu sua senha?</span></a>
+            </NavLink>
             <div className="button-form">
-            <Button color="primary">Entrar</Button>
+                <Button color="primary">Entrar</Button>
             </div>
         </form>
     )
