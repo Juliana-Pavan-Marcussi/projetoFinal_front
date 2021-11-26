@@ -105,6 +105,7 @@ const AddUserForm = (props) => {
                     <Multiselect
                         disablePreSelectedValues
                         displayValue="name"
+                        placeholder="Assuntos"
                         options={[
                             {
                                 name: 'Phyton',
