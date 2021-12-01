@@ -1,6 +1,8 @@
 import React from 'react';
 import '../pages/Cadastro.css';
 import Select from 'react-select';
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BsStopwatch } from "../../node_modules/react-icons/bs/index";
 import {
     Button,
     Form,
@@ -23,7 +25,7 @@ function Professor() {
     return (
         <div>
             <h1 className="title">Minhas Aulas Agendadas</h1>
-            <Table bordered={false} style={{ display: 'block', width: '63%', padding: '30', marginLeft: '300px', textAlign: 'center' }}>
+            <Table bordered={false} style={{ display: 'block', width: '63%', padding: '30', marginLeft: '300px', textAlign: 'center', marginBottom: "50px" }}>
                 <thead>
                     <tr>
                         <th style={{ width: '580px' }}>Matéria</th>
@@ -57,6 +59,9 @@ function Professor() {
                     </tr>
                 </tbody>
             </Table>
+            <NavLink to="/disponibilizar-horários">
+           <a style={{ cursor: 'pointer'}}><BsStopwatch class="icon" style={{ marginLeft: "950px"}} /><span style={{ color: "#031349", fontWeight:"bolder"}}>Clique aqui para disponibilizar horários</span></a>
+            </NavLink>
         </div>
     )
 }

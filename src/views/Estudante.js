@@ -3,6 +3,8 @@ import '../pages/Cadastro.css';
 import Calendar from 'react-calendar';
 import Multiselect from 'multiselect-react-dropdown';
 import Select from 'react-select';
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BsStopwatch } from "../../node_modules/react-icons/bs/index";
 import {
     Button,
     Form,
@@ -87,7 +89,7 @@ const Estudante = () => {
                     <div className="grid-1">
                         <h4 style={{ textAlign: 'center', marginTop: '14px', marginBottom: '40px' }}>Passo 3</h4>
                         <div className="input-form">
-                        <span style={{ marginBottom: "20px" }}>Selecione um horário</span>
+                            <span style={{ marginBottom: "20px" }}>Selecione um horário</span>
                             <Select
                                 className="basic-single"
                                 classNamePrefix="select"
@@ -100,9 +102,16 @@ const Estudante = () => {
                     </div >
                 </Col>
             </Row>
-            <div className="button-form">
-                <Button color="primary">Agendar Horário</Button>
-            </div>
+            <Row>
+                <div className="button-form">
+                    <Button color="primary">Agendar Horário</Button>
+                </div>
+                {/* <div className="button-form-2">
+                    <NavLink to="/agendamentos-estudante">
+                        <BsStopwatch class="icon" /><a style={{ cursor: 'pointer' }}><span>Ver horários Agendados</span></a>
+                    </NavLink>
+                </div> */}
+            </Row>
         </div>
     )
 }

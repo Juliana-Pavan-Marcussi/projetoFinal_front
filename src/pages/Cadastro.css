@@ -74,8 +74,15 @@ label {
 .button-form{
     text-align: center;
     margin-top: 40px;
-    margin-left: 65px;
-    margin-bottom: 30px;
+    margin-left: 570px;
+    margin-bottom: 30px;    
+}
+
+.button-form-2{
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 365px;
+  margin-bottom: 30px;    
 }
 
 .multiselect-form{

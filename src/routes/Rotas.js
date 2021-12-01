@@ -7,6 +7,8 @@ import { Switch } from "react-router";
 import Estudante from '../views/Estudante';
 import Professor from '../views/Professor';
 import Senha from '../pages/Senha';
+import Horarios from '../pages/Horarios';
+import Agenda from '../pages/Agenda';
 
 function Rotas() {
     return (
@@ -18,6 +20,8 @@ function Rotas() {
                 <Route path="/cadastro" component={Cadastro} />
                 <Route path="/login" component={Login} />
                 <Route path="/redefinir-senha" component={Senha} />
+                <Route path="/disponibilizar-horários" component={Horarios} />
+                <Route path="/agendamentos-estudante" component={Agenda} />
             </Switch>
         </div>
     )
