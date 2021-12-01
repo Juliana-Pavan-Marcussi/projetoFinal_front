@@ -75,6 +75,7 @@ label {
     text-align: center;
     margin-top: 40px;
     margin-left: 65px;
+    margin-bottom: 30px;
 }
 
 .multiselect-form{
@@ -311,9 +312,10 @@ label {
 color:#5675BC
 }
 
-.table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-bottom: none !important;
+  .table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-bottom: none !important;
 }
+
   
