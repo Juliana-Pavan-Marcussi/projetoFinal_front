@@ -103,7 +103,7 @@ const Estudante = () => {
                 </Col>
             </Row>
             <Row>
-                <div className="button-form">
+                <div className="button-form-3">
                     <Button color="primary">Agendar Horário</Button>
                 </div>
                 {/* <div className="button-form-2">

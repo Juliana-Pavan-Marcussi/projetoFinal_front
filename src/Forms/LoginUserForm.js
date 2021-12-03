@@ -54,16 +54,16 @@ const LoginUserForm = (props) => {
                     onChange={handleInputChange} />
             </div>
             <NavLink to="/redefinir-senha">
-                <a><span style={{ color: "#031349", marginLeft: "800px", cursor: "pointer" }}>Esqueceu sua senha?</span></a>
+                <a><span style={{ color: "#031349", marginLeft: "46%", cursor: "pointer" }}>Esqueceu sua senha?</span></a>
             </NavLink>
             <div className="button-form">
                 <Button color="primary">Entrar</Button>
             </div>
             <NavLink to="/cadastro">
-                <a><span style={{ color: "#031349", marginLeft: "750px", cursor: "pointer", fontWeight:"bolder"}}>Não tem conta? <span style={{ color: "rgb(86 117 188)"}}>Cadastre-se.</span></span></a>
+                <a><span style={{ color: "#031349", marginLeft: "44%", cursor: "pointer", fontWeight:"bolder"}}>Não tem conta? <span style={{ color: "rgb(86 117 188)"}}>Cadastre-se.</span></span></a>
             </NavLink>
-            <p style={{color: "rgb(155 155 157)", marginLeft:"800px", width: "170px", textAlign: "center", marginTop:"40px"}}>Dúvidas na área de TI. Agende seu horário.</p>
-            <p style={{color: "rgb(155 155 157)", marginLeft:"800px", width: "170px", textAlign: "center", marginTop:"30px"}}>Nós você à educadores da área da Tecnologia da Informação.</p>
+            <p style={{color: "rgb(155 155 157)", marginLeft:"47%", width: "170px", textAlign: "center", marginTop:"40px"}}>Dúvidas na área de TI. Agende seu horário.</p>
+            <p style={{color: "rgb(155 155 157)", marginLeft:"47%", width: "170px", textAlign: "center", marginTop:"30px"}}>Nós você à educadores da área da Tecnologia da Informação.</p>
         </form>
     )
 }
