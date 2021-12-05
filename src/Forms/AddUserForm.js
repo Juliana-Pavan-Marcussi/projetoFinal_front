@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../pages/Cadastro.css';
+import InputMask from "react-input-mask";
 import Multiselect from 'multiselect-react-dropdown';
+import UserService from '../Services/UserService';
 import {
     Button,
     Form,
@@ -21,14 +23,42 @@ import {
 
 const AddUserForm = (props) => {
 
-    const initialFormState = { name: '', email: '', cpf: '', phone: '', password: '', checkbox: '' }
+    const initialFormState = { name: '', email: '', cpf: '', phone: '', password: '', checked: false, url: '', subjectIds: [] }
     const [user, setUser] = useState(initialFormState);
-    const [isChecked, setIsChecked] = useState(false);
+    const [subjects, setSubjects] = useState([]);
+    const [checked, setChecked] = useState(false);
+    const [selectedValue, setSelectedValue] = useState([]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target
         setUser({ ...user, [name]: value })
     };
+
+    const handleMultiSelectedValue = (event) => {
+        setSelectedValue([]);
+        event.forEach(value => selectedValue.push(value.id));
+        user.subjectIds = selectedValue;
+    }
+
+    const handleChecked = () => {
+        if (checked == false) {
+            setChecked(true);
+            user.checked = true;
+        } else {
+            setChecked(false);
+            user.checked = false;
+        }
+    }
+
+    const populateMultiselectSubjects = () => {
+        UserService.getAllSubjects().then(res => {
+            setSubjects(res);
+        });
+    }
+
+    useEffect(() => {
+        populateMultiselectSubjects();
+    }, []);
 
     return (
         <form className="form-area" onSubmit={(event) => {
@@ -58,17 +88,19 @@ const AddUserForm = (props) => {
             </div>
             <div className="input-form">
                 <label className="text-label">CPF</label>
-                <input className="text-input"
+                <InputMask as={InputMask} className="text-input"
                     type="text"
                     name="cpf"
+                    mask={"999.999.999-99"}
                     value={user.cpf}
                     onChange={handleInputChange} />
             </div>
             <div className="input-form">
                 <label className="text-label">Telefone</label>
-                <input className="text-input"
+                <InputMask className="text-input"
                     type="text"
                     name="phone"
+                    mask={"(99) 99999-9999"}
                     value={user.phone}
                     onChange={handleInputChange} />
             </div>
@@ -82,54 +114,43 @@ const AddUserForm = (props) => {
             </div>
             <div className="input-form">
                 <Input
-                    type="radio"
-                    name="radio"
-                    value={user.checkbox}
-                    onChange={handleInputChange}
+                    type="checkbox"
+                    //onChange={() => setChecked(!(user.checked))}
+                    onChange={handleChecked}
+                    value={user.checked}
                     size="md"
                     bsSize="large"
                 ></Input>
                 <label className="checkbox-label">Você é um professor?</label>
             </div>
-            <div className="input-form">
-                <label className="text-label-2">URL do Linkedin</label>
-                <input className="text-input"
-                    type="url"
-                    name="url"
-                    value={user.url}
-                    onChange={handleInputChange} />
-            </div>
-            <div className="input-form">
-                <Row>
-                    <span className="text-label-3">Assuntos</span>
-                    <Multiselect
-                        disablePreSelectedValues
-                        displayValue="name"
-                        placeholder="Assuntos"
-                        options={[
-                            {
-                                name: 'Phyton',
-                                description: 'Curso de Phyton'
-                            },
-                            {
-                                name: 'Java',
-                                description: 'Curso de Java'
-                            },
-                            {
-                                name: 'C#',
-                                description: 'Curso de C#'
-                            },
-                            {
-                                name: 'Java Script',
-                                description: 'Curso de Java Script'
-                            },
-                        ]} // Options to display in the dropdown
-                    //selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                    //onSelect={this.onSelect} // Function will trigger on select event
-                    //onRemove={this.onRemove} // Function will trigger on remove event               
-                    />
-                </Row>
-            </div>
+            {checked ?
+                <div className="input-form">
+                    <label className="text-label-2">URL do Linkedin</label>
+                    <input className="text-input"
+                        type="url"
+                        name="url"
+                        value={user.url}
+                        onChange={handleInputChange} />
+                </div> : ''
+            }
+            {checked ?
+                <div className="input-form">
+                    <Row>
+                        <span className="text-label-3">Assuntos</span>
+                        <Multiselect
+                            className="multiselect"
+                            disablePreSelectedValues
+                            displayValue="name"
+                            placeholder="Assuntos"
+                            options={subjects} // Options to display in the dropdown
+                            //onChange={handleMultiSelectedValue}
+                            // selectedValues={selectedValue} // Preselected value to persist in dropdown
+                            onSelect={handleMultiSelectedValue} // Function will trigger on select event
+                            onRemove={handleMultiSelectedValue} // Function will trigger on remove event               
+                        />
+                    </Row>
+                </div> : ''
+            }
             <div className="button-form">
                 <Button color="primary">Cadastre-se</Button>
             </div>

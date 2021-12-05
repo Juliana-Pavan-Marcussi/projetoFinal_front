@@ -1,13 +1,13 @@
 ul li{
-    text-decoration: none;
-    display: inline;
-    margin-right: 25px;
-    float: right;
-    margin-top: 18px;
+    text-decoration: none !important;
+    display: inline !important;
+    margin-right: 25px !important;
+    float: right !important;
+    margin-top: 18px !important;
   } 
 
   ul{
-    top: 20%;
+    top: 20% !important;
   }
 
   .menu{    

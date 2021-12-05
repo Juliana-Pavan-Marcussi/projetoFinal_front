@@ -332,4 +332,33 @@ color:#5675BC
   border-bottom: none !important;
 }
 
+.multiSelectContainer ul li{
+  text-decoration: none !important;
+  display: inline !important;
+  float: left !important;
+  width: 398px !important;
+}
+
+
+.highlightOption {
+  background: #007bff;
+  color: #fff;
+}
+
+.searchWrapper {
+  border: 1px solid #212121 !important;
+  border-radius: 5px;
+  padding: 0px !important;
+  min-height: 17px !important;
+  position: relative;
+  width: 400px;
+  height: 30px;
+}
+
+.multiSelectContainer input {
+  margin-bottom: 2px !important;
+  border: none;
+  margin-top: -1px !important;
+  background: transparent;
+}
   

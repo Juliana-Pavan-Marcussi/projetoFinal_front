@@ -15,7 +15,7 @@ function Rotas() {
         <div>
             <Switch>
                 <Route path="/professor" component={Professor} />
-                <Route path="/estudante" component={Estudante} />
+                <Route path="/estudante/" component={Estudante} />
                 <Route exact path="/" component={Home} />
                 <Route path="/cadastro" component={Cadastro} />
                 <Route path="/login" component={Login} />
