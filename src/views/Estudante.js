@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../pages/Cadastro.css';
 import Calendar from 'react-calendar';
+import UserService from '../Services/UserService';
 import Multiselect from 'multiselect-react-dropdown';
 import Select from 'react-select';
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
@@ -27,21 +28,52 @@ const Estudante = () => {
 
     const styles = {
         fontSize: 14,
-        width: 200,
+        width: 150,
     }
 
-    const colourOptions = [
-        { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-        { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
-        { value: 'purple', label: 'Purple', color: '#5243AA' },
-        { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
-        { value: 'orange', label: 'Orange', color: '#FF8B00' },
-        { value: 'yellow', label: 'Yellow', color: '#FFC400' },
-        { value: 'green', label: 'Green', color: '#36B37E' },
-        { value: 'forest', label: 'Forest', color: '#00875A' },
-        { value: 'slate', label: 'Slate', color: '#253858' },
-        { value: 'silver', label: 'Silver', color: '#666666' },
-    ];
+    const [subjects, setSubjects] = useState([]);
+    const [teahers, setTeachers] = useState([]);
+
+    const populateSelectSubjects = () => {
+        UserService.getAllSubjects().then(res => {
+            res.forEach(el => {
+                subjects.push(el);
+            });
+            subjects.forEach(el => {
+                el["label"] = el.name;
+            });
+        });
+    }
+
+    const populateSelectTeachers = () => {
+        UserService.getAllTeachersById().then(res => {
+            res.forEach(el => {
+                subjects.push(el);
+            });
+            subjects.forEach(el => {
+                el["label"] = el.name;
+            });
+        });
+    }
+
+    const handleChangeSubject = (event) => {
+       UserService.getTeachersBySubjectId(event.id).then(res => {
+
+       });
+    }
+
+    const handleChangeTeacher = () => {
+
+    }
+
+    const onEventClick = () => {
+        
+    }
+
+    useEffect(() => {
+        populateSelectSubjects();
+    }, []);
+
 
     return (
         <div className="container">
@@ -55,10 +87,10 @@ const Estudante = () => {
                             <Select
                                 className="basic-single"
                                 classNamePrefix="select"
-                                //defaultValue={colourOptions[0]}
-                                name="color"
-                                options={colourOptions}
-                                placeholder="Selecione um horário"
+                                name="name"
+                                options={subjects}
+                                placeholder="Selecione um assunto"
+                                onChange={handleChangeSubject.bind(this)}
                                 style={styles.select}
                             />
                         </div>
@@ -67,10 +99,10 @@ const Estudante = () => {
                             <Select
                                 className="basic-single"
                                 classNamePrefix="select"
-                                //defaultValue={colourOptions[0]}
-                                name="color"
-                                options={colourOptions}
-                                placeholder="Selecione um horário"
+                                name="name"
+                                options={subjects}
+                                onChange={handleChangeTeacher}
+                                placeholder="Selecione um professor"
                             />
                         </div>
                     </div>
@@ -81,6 +113,9 @@ const Estudante = () => {
                         <div className="input-form">
                             <span style={{ marginBottom: "20px" }}>Selecione uma data</span>
                             <Calendar
+                            onEventClick={onEventClick}
+                            onNewEventClick={onEventClick}
+                            events={[]}
                             />
                         </div >
                     </div >
@@ -94,8 +129,8 @@ const Estudante = () => {
                                 className="basic-single"
                                 classNamePrefix="select"
                                 //defaultValue={colourOptions[0]}
-                                name="color"
-                                options={colourOptions}
+                                name="name"
+                                options={subjects}
                                 placeholder="Selecione um horário"
                             />
                         </div >

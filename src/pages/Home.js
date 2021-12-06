@@ -9,7 +9,7 @@ import { FaMoneyBillAlt } from 'react-icons/fa';
 function Home() {
     return (
         <div>
-            <img src={imgagemEscolhida} width="650px" height="350px" class="image"/>
+            <img src={imgagemEscolhida} width="50%" height="100%" class="image"/>
             <p class="info-text"><FaTv class="icon" />Aulas sob demanda com conteúdo escolhido.</p>
             <p class="info-text"><FaScroll class="icon" />Professores qualificados e especializados.</p>
             <p class="info-text"><FaMoneyBillAlt class="icon" />Retorno do investimento.</p>

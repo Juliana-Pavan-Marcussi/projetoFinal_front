@@ -35,6 +35,14 @@ class userService {
       });
   }
 
+  getTeachersBySubjectId(subjectId) {
+    return apiTicher
+      .get("/subject/" + subjectId)
+      .then((response) => {
+        return response.data;
+      });
+  }
+
 }
 
 export default new userService;

@@ -1,6 +1,6 @@
 .image{
     text-align: center;
-    margin-left:29%;
+    margin-left:24%;
     margin-bottom: 30px;
 }
 
@@ -27,8 +27,39 @@ svg {
 .footer{
     display: flex;
     margin-top:60px;
-    margin-left:400px;
+    margin-left:27%;
+    margin-right:15%;
     margin-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+.footer {
+    display: flex;
+    margin-top: 60px;
+    margin-left: 10%;
+    margin-right: 15%;
+    margin-bottom: 100px;
+}
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .footer {
+        display: flex;
+        margin-top: 60px;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 100px;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1400px) {
+    .footer {
+        display: flex;
+        margin-top: 60px;
+        margin-left: 20%;
+        margin-right: 15%;
+        margin-bottom: 100px;
+    }
 }
 
 .footer-info{
